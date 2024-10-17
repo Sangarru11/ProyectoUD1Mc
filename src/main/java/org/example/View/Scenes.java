@@ -1,7 +1,7 @@
 package org.example.View;
 
 public enum Scenes {
-    MAIN("View/main.fxml");
+    MAIN("/org/example.View/add_user.fxml");
 
     private String url;
     Scenes(String url){

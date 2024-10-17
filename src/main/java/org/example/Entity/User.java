@@ -1,15 +1,16 @@
 package org.example.Entity;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Users {
+public class User implements Serializable {
     private String id;
     private String nombre;
 
-    public Users() {
+    public User() {
     }
 
-    public Users(String id, String nombre) {
+    public User(String id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
@@ -34,7 +35,7 @@ public class Users {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Users users = (Users) o;
+        User users = (User) o;
         return Objects.equals(id, users.id) && Objects.equals(nombre, users.nombre);
     }
 
