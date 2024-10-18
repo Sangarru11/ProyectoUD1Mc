@@ -6,20 +6,26 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="409.0" prefWidth="566.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.View.RegisterUserController">
+<VBox alignment="CENTER" prefHeight="460.0" prefWidth="566.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.View.LoginUserController">
    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
       <image>
          <Image url="@logo.jpeg" />
       </image>
    </ImageView>
    <AnchorPane prefHeight="37.0" prefWidth="566.0" />
-    <TextField fx:id="txtId" promptText="ID de usuario" />
    <AnchorPane prefHeight="0.0" prefWidth="566.0" />
     <TextField fx:id="txtUserName" promptText="Nombre de usuario" />
    <AnchorPane prefHeight="0.0" prefWidth="566.0" />
    <PasswordField fx:id="txtPassword" promptText="Contraseña" />
    <AnchorPane prefHeight="15.0" prefWidth="566.0" />
-    <Button onAction="#AddUser" text="Registrar" />
+   <HBox alignment="TOP_CENTER" prefHeight="63.0" prefWidth="566.0">
+      <children>
+          <Button onAction="#LoginUser" text="Iniciar sesion" />
+         <AnchorPane prefHeight="95.0" prefWidth="56.0" />
+         <Button onAction="#Register" text="Registrarse" />
+      </children>
+   </HBox>
 </VBox>
