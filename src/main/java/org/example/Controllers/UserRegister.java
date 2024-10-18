@@ -1,7 +1,6 @@
 package org.example.Controllers;
 
 import org.example.Entity.User;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,14 +13,14 @@ public class UserRegister {
         List<User> existingUsers = loadUsersFromFile();
 
         for (User existingUser : existingUsers) {
-            if (existingUser.getId().equals(user.getId()) || existingUser.getNombre().equals(user.getNombre())) {
+            if (existingUser.getId().equals(user.getId()) || existingUser.getName().equals(user.getName())) {
                 throw new IOException("El usuario ya está registrado.");
             }
         }
         writeUserToFile(user);
     }
 
-    private List<User> loadUsersFromFile() throws IOException {
+    public List<User> loadUsersFromFile() throws IOException {
         List<User> users = new ArrayList<>();
         File xmlFile = new File(SAVE_XML_FILE);
 
@@ -29,19 +28,23 @@ public class UserRegister {
             try (BufferedReader reader = new BufferedReader(new FileReader(xmlFile))) {
                 String line;
                 String id = null;
-                String nombre = null;
+                String name = null;
+                String password = null;
 
                 while ((line = reader.readLine()) != null) {
                     line = line.trim();
                     if (line.startsWith("<id>")) {
                         id = line.substring(4, line.indexOf("</id>"));
                     } else if (line.startsWith("<nombre>")) {
-                        nombre = line.substring(8, line.indexOf("</nombre>"));
+                        name = line.substring(8, line.indexOf("</nombre>"));
+                    } else if (line.startsWith("<password>")) {
+                        password = line.substring(10, line.indexOf("</password>"));
                     } else if (line.startsWith("</persona>")) {
-                        if (id != null && nombre != null) {
-                            users.add(new User(id, nombre));
+                        if (id != null && name != null && password != null) {
+                            users.add(new User(id, name, password));
                             id = null;
-                            nombre = null;
+                            name = null;
+                            password = null;
                         }
                     }
                 }
@@ -51,23 +54,20 @@ public class UserRegister {
     }
 
     private void writeUserToFile(User user) throws IOException {
+        File file = new File(SAVE_XML_FILE);
+        boolean isNewFile = !file.exists();
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(SAVE_XML_FILE, true))) {
-            File file = new File(SAVE_XML_FILE);
-            if (file.length() == 0) {
+            if (isNewFile) {
                 writer.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
                 writer.write("<personas>\n");
             }
             writer.write("    <persona>\n");
             writer.write("        <id>" + user.getId() + "</id>\n");
-            writer.write("        <nombre>" + user.getNombre() + "</nombre>\n");
+            writer.write("        <nombre>" + user.getName() + "</nombre>\n");
+            writer.write("        <password>" + user.getPassword() + "</password>\n");
             writer.write("    </persona>\n");
             writer.flush();
-        }
-    }
-
-    public void closeXmlFile() throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(SAVE_XML_FILE, true))) {
-            writer.write("</personas>");
         }
     }
 }

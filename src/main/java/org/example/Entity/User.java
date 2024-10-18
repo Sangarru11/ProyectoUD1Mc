@@ -5,14 +5,16 @@ import java.util.Objects;
 
 public class User implements Serializable {
     private String id;
-    private String nombre;
+    private String name;
+    private String password;
 
     public User() {
     }
 
-    public User(String id, String nombre) {
+    public User(String id, String name, String password) {
         this.id = id;
-        this.nombre = nombre;
+        this.name = name;
+        this.password = password;
     }
 
     public String getId() {
@@ -23,32 +25,41 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        User users = (User) o;
-        return Objects.equals(id, users.id) && Objects.equals(nombre, users.nombre);
+        User user = (User) o;
+        return Objects.equals(id, user.id) && Objects.equals(name, user.name) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nombre);
+        return Objects.hash(id, name, password);
     }
 
     @Override
     public String toString() {
-        return "Users{" +
+        return "User{" +
                 "id='" + id + '\'' +
-                ", nombre='" + nombre + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
                 '}';
     }
 }
