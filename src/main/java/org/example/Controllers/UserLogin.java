@@ -6,21 +6,28 @@ import java.io.IOException;
 import java.util.List;
 
 public class UserLogin {
-    private static final String SAVE_XML_FILE = "users.xml";
 
-    public static boolean login(String inputId, String inputPassword) throws IOException {
+    private User loggedUser;
+
+    public boolean login(String inputIdOrName, String inputPassword) throws IOException {
         List<User> users = loadUsersFromFile();
-
+        boolean isLoginSuccessful = false;
         for (User user : users) {
-            if (user.getId().equals(inputId) && user.getPassword().equals(inputPassword)) {
-                return true;
+            if ((user.getId().equals(inputIdOrName) || user.getName().equals(inputIdOrName))
+                    && user.getPassword().equals(inputPassword)) {
+                loggedUser = user;
+                isLoginSuccessful = true;
             }
         }
-        return false;
+        return isLoginSuccessful;
     }
 
-    private static List<User> loadUsersFromFile() throws IOException {
-        List<User> users = new UserRegister().loadUsersFromFile();
-        return users;
+
+    public User getLoggedUser() {
+        return loggedUser;
+    }
+
+    private List<User> loadUsersFromFile() throws IOException {
+        return new UserRegister().loadUsersFromFile();
     }
 }

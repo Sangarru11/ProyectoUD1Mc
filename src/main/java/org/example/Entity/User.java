@@ -1,20 +1,25 @@
 package org.example.Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class User implements Serializable {
     private String id;
     private String name;
     private String password;
+    private List<User> contacts;
 
     public User() {
+        this.contacts = new ArrayList<>();
     }
 
     public User(String id, String name, String password) {
         this.id = id;
         this.name = name;
         this.password = password;
+        this.contacts = new ArrayList<>();
     }
 
     public String getId() {
@@ -39,6 +44,14 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<User> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(List<User> contacts) {
+        this.contacts = contacts;
     }
 
     @Override

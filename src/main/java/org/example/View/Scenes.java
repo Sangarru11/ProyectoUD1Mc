@@ -1,9 +1,12 @@
 package org.example.View;
 
 public enum Scenes {
-    MAIN("/org/example.View/add_user.fxml"),
+    AddUser("/org/example.View/add_user.fxml"),
     Login("/org/example.View/login_user.fxml"),
-    ChatList("/org/example.View/chatList.fxml");
+    UserContacList("/org/example.View/ContactList.fxml"),
+    AddContact("/org/example.View/AddContact.fxml"),
+    Chat("/org/example.View/Chat.fxml"),
+    ContactList("/org/example.View/ContactList.fxml");
 
     private String url;
     Scenes(String url){
