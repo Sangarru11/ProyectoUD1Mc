@@ -14,14 +14,16 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class LoginUserController extends Controller implements Initializable {
+
     @FXML
     private TextField txtUserName;
     @FXML
     private PasswordField txtPassword;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
+
     @FXML
     public void LoginUser() {
         String userName = txtUserName.getText();
@@ -29,14 +31,17 @@ public class LoginUserController extends Controller implements Initializable {
 
         if (userName.isEmpty() || password.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Todos los campos son obligatorios.");
+            alert.setContentText("Tienes que rellenar todos los campos.");
             alert.show();
+            return;
         }
 
         try {
-            boolean isLoginSuccessful = UserLogin.login(userName, password);
+            UserLogin userLogin = new UserLogin();
+            boolean isLoginSuccessful = userLogin.login(userName, password);
+
             if (isLoginSuccessful) {
-                changeScene(Scenes.ChatList,null);
+                changeScene(Scenes.ContactList, userLogin.getLoggedUser());
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("ID o contraseña incorrectos.");
@@ -54,13 +59,12 @@ public class LoginUserController extends Controller implements Initializable {
 
     @Override
     public void onOpen(Object input) throws IOException {
-
     }
 
     @Override
     public void onClose(Object output) {
-
     }
+
     public static void changeScene(Scenes scene, Object data) throws IOException {
         View view = MainController.loadFXML(scene);
         Scene _scene = new Scene(view.scene, 640, 480);
@@ -69,8 +73,9 @@ public class LoginUserController extends Controller implements Initializable {
         App.stage.setScene(_scene);
         App.stage.show();
     }
+
     @FXML
     public void Register() throws IOException {
-        changeScene(Scenes.MAIN, null);
+        changeScene(Scenes.AddUser, null);
     }
 }

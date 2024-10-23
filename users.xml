@@ -1,11 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-    <persona>
-        <id>1</id>
-        <nombre>Pepillo</nombre>
-        <password>1234</password>
-    </persona>
-    <persona>
-        <id>2</id>
-        <nombre>Juanma</nombre>
-        <password>payaso</password>
-    </persona>
+<persona>
+<id>1</id>
+<nombre>Jorge</nombre>
+<password>1234</password>
+<contactos>
+<contacto>
+<id>2</id>
+<nombre>Juanma</nombre>
+</contacto>
+</contactos>
+</persona>
+<persona>
+<id>2</id>
+<nombre>Juanma</nombre>
+<password>1234</password>
+<contactos>
+</contactos>
+</persona>

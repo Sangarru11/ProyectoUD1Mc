@@ -17,9 +17,9 @@
    </ImageView>
    <AnchorPane prefHeight="37.0" prefWidth="566.0" />
    <AnchorPane prefHeight="0.0" prefWidth="566.0" />
-    <TextField fx:id="txtUserName" promptText="Nombre de usuario" />
+    <TextField fx:id="txtUserName" promptText="Nombre de usuario" text="Jorge" />
    <AnchorPane prefHeight="0.0" prefWidth="566.0" />
-   <PasswordField fx:id="txtPassword" promptText="Contraseña" />
+   <PasswordField fx:id="txtPassword" promptText="Contraseña" text="1234" />
    <AnchorPane prefHeight="15.0" prefWidth="566.0" />
    <HBox alignment="TOP_CENTER" prefHeight="63.0" prefWidth="566.0">
       <children>
