@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -8,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="409.0" prefWidth="566.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.View.AddContactController">
+<VBox alignment="CENTER" prefHeight="480.0" prefWidth="640.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.View.AddContactController">
     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
         <image>
             <Image url="@logo.jpeg" />
@@ -16,7 +17,7 @@
     </ImageView>
     <AnchorPane prefHeight="37.0" prefWidth="566.0">
       <children>
-         <Text layoutX="135.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Añadir Contacto Por ID">
+         <Text layoutX="172.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Añadir Contacto Por ID">
             <font>
                <Font size="29.0" />
             </font>
@@ -27,9 +28,24 @@
     <AnchorPane prefHeight="0.0" prefWidth="566.0" />
     <AnchorPane prefHeight="0.0" prefWidth="566.0" />
     <AnchorPane prefHeight="15.0" prefWidth="566.0" />
-   <ImageView fitHeight="80.0" fitWidth="65.0" onMouseClicked="#AddContact" pickOnBounds="true" preserveRatio="true">
-      <image>
-         <Image url="@SolarUserPlusBroken.png" />
-      </image>
-   </ImageView>
+   <AnchorPane prefHeight="130.0" prefWidth="640.0">
+      <children>
+         <ImageView fitHeight="80.0" fitWidth="65.0" layoutX="288.0" layoutY="56.0" onMouseClicked="#AddContact" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@SolarUserPlusBroken.png" />
+            </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+         <ImageView fitHeight="56.0" fitWidth="42.0" layoutX="584.0" layoutY="121.0" onMouseClicked="#ChangeSceneToContactList" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Return.png" />
+            </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+      </children>
+   </AnchorPane>
 </VBox>

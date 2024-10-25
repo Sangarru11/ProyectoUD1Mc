@@ -62,4 +62,16 @@
          </TableView>
       </children>
    </VBox>
+   <HBox alignment="BOTTOM_RIGHT" prefHeight="50.0" prefWidth="566.0">
+      <children>
+         <ImageView fitHeight="42.0" fitWidth="63.0" onMouseClicked="#ChangeSceneToLogin" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Return.png" />
+            </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+      </children>
+   </HBox>
 </VBox>

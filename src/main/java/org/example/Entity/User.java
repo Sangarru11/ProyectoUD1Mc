@@ -22,6 +22,9 @@ public class User implements Serializable {
         this.contacts = new ArrayList<>();
     }
 
+    public User(String id, String name) {
+    }
+
     public String getId() {
         return id;
     }
