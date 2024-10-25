@@ -60,6 +60,10 @@ public class RegisterUserController extends Controller {
     public void onOpen(Object input) {
     }
 
+    @FXML
+    public void ChangeToLogin() throws IOException {
+        LoginUserController.changeScene(Scenes.Login,null);
+    }
     @Override
     public void onClose(Object output) {
     }

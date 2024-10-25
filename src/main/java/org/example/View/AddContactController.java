@@ -80,6 +80,11 @@ public class AddContactController extends Controller implements Initializable {
 
     }
 
+    @FXML
+    public void ChangeSceneToContactList() throws IOException {
+        LoginUserController.changeScene(Scenes.ContactList,null);
+    }
+
     @Override
     public void onClose(Object output) {
 

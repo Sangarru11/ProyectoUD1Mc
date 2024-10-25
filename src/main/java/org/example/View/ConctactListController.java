@@ -24,9 +24,7 @@ public class ConctactListController extends Controller implements Initializable 
     private User loggedUser;
 
     @Override
-    public void initialize() {
-
-    }
+    public void initialize() {}
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -55,9 +53,8 @@ public class ConctactListController extends Controller implements Initializable 
             loggedUser = (User) input;
             loadContacts(loggedUser.getContacts());
         }
-
-
     }
+
     private void loadContacts(List<User> contacts) {
         if (contacts != null && !contacts.isEmpty()) {
             contactsTable.getItems().setAll(contacts);
@@ -67,15 +64,21 @@ public class ConctactListController extends Controller implements Initializable 
             alert.show();
         }
     }
+
     private void changeSceneToChat(User selectedContact) throws IOException {
-        LoginUserController.changeScene(Scenes.Chat, selectedContact);
+        User[] users = new User[] { loggedUser, selectedContact };
+        LoginUserController.changeScene(Scenes.Chat, users);
     }
+
+
     public void addContactButton() throws IOException {
         LoginUserController.changeScene(Scenes.AddContact, null);
     }
 
-    @Override
-    public void onClose(Object output) {
-
+    @FXML
+    public void ChangeSceneToLogin() throws IOException {
+        LoginUserController.changeScene(Scenes.Login,null);
     }
+    @Override
+    public void onClose(Object output) {}
 }

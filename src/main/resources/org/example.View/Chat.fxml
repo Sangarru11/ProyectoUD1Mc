@@ -1,14 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.View.Chat"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<VBox alignment="CENTER" prefHeight="480.0" prefWidth="640.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.View.ChatViewController">
+   <HBox prefHeight="54.0" prefWidth="640.0">
+      <children>
+          <ImageView fitHeight="79.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                  <Image url="@logo.jpeg" />
+              </image>
+          </ImageView>
+          <AnchorPane prefHeight="37.0" prefWidth="566.0">
+              <children>
+                  <Text layoutX="221.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat">
+                      <font>
+                          <Font size="29.0" />
+                      </font>
+                  </Text>
+              </children>
+          </AnchorPane>
+      </children>
+   </HBox>
+    <TextArea fx:id="messageArea" editable="false" prefHeight="255.0" prefWidth="640.0" />
+    <TextField fx:id="messageInput" promptText="Introduce tu mensaje" />
+   <AnchorPane prefHeight="43.0" prefWidth="640.0">
+      <children>
+         <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="584.0" layoutY="73.0" onMouseClicked="#ChangeSceneToContact" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@Return.png" />
+            </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+         <ImageView fitHeight="56.0" fitWidth="59.0" layoutX="292.0" layoutY="37.0" onMouseClicked="#sendMessage" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@TablerSend.png" />
+            </image>
+            <cursor>
+               <Cursor fx:constant="HAND" />
+            </cursor>
+         </ImageView>
+      </children>
+   </AnchorPane>
+</VBox>
