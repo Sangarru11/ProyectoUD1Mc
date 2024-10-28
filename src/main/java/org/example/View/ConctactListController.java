@@ -24,17 +24,13 @@ public class ConctactListController extends Controller implements Initializable 
     private User loggedUser;
 
     @Override
-    public void initialize() {}
-
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         columnIDUser.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnContactName.setCellValueFactory(new PropertyValueFactory<>("name"));
-
         contactsTable.setRowFactory(tv -> {
             TableRow<User> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+                if (event.getClickCount() == 2 && !row.isEmpty()) {
                     User selectedContact = row.getItem();
                     try {
                         changeSceneToChat(selectedContact);
@@ -48,6 +44,11 @@ public class ConctactListController extends Controller implements Initializable 
     }
 
     @Override
+    public void initialize() {
+
+    }
+
+    @Override
     public void onOpen(Object input) throws IOException {
         if (input instanceof User) {
             loggedUser = (User) input;
@@ -55,21 +56,20 @@ public class ConctactListController extends Controller implements Initializable 
         }
     }
 
-    private void loadContacts(List<User> contacts) {
+    public void loadContacts(List<User> contacts) {
         if (contacts != null && !contacts.isEmpty()) {
             contactsTable.getItems().setAll(contacts);
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setContentText("Añade a alguien a tus contactos que estas mas solo que la una.");
+            alert.setContentText("Añade a alguien a tus contactos que estás más solo que la una.");
             alert.show();
         }
     }
 
     private void changeSceneToChat(User selectedContact) throws IOException {
-        User[] users = new User[] { loggedUser, selectedContact };
+        User[] users = new User[]{loggedUser, selectedContact};
         LoginUserController.changeScene(Scenes.Chat, users);
     }
-
 
     public void addContactButton() throws IOException {
         LoginUserController.changeScene(Scenes.AddContact, null);
@@ -77,8 +77,10 @@ public class ConctactListController extends Controller implements Initializable 
 
     @FXML
     public void ChangeSceneToLogin() throws IOException {
-        LoginUserController.changeScene(Scenes.Login,null);
+        LoginUserController.changeScene(Scenes.Login, null);
     }
+
     @Override
     public void onClose(Object output) {}
 }
+

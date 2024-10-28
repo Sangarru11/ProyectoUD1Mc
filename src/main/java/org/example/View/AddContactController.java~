@@ -23,6 +23,7 @@ public class AddContactController extends Controller implements Initializable {
     @FXML
     private TextField UserLoginId;
     private UserContact userContact;
+    private User loggedUser;
 
     @FXML
     private void AddContact() {
