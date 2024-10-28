@@ -43,7 +43,7 @@ public class LoginUserController extends Controller implements Initializable {
                 changeScene(Scenes.ContactList, userLogin.getLoggedUser());
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("ID o contraseña incorrectos.");
+                alert.setContentText("Usuario o contraseña incorrectos.");
                 alert.show();
             }
         } catch (IOException e) {

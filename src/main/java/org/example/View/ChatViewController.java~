@@ -88,10 +88,14 @@ public class ChatViewController extends Controller implements Initializable {
 
     }
     public Map<String, Long> countWordsInMessages(List<ChatConst> messages) {
-        return messages.stream().flatMap(message -> Arrays.stream(message.getContent().split("\\W+"))).filter(word -> !word.isEmpty()).collect(Collectors.groupingBy(String::toLowerCase, Collectors.counting()));
+        return messages.stream()
+                .flatMap(message -> Arrays.stream(message.getContent().split("\\W+")))
+                .filter(word -> !word.isEmpty())
+                .collect(Collectors.groupingBy(String::toLowerCase, Collectors.counting()));
     }
     public Map<String, Long> countMessagesByUser(List<ChatConst> messages) {
-        return messages.stream().collect(Collectors.groupingBy(ChatConst::getSender, Collectors.counting()));
+        return messages.stream()
+                .collect(Collectors.groupingBy(ChatConst::getSender, Collectors.counting()));
     }
 
     public long countTotalMessages(List<ChatConst> messages) {

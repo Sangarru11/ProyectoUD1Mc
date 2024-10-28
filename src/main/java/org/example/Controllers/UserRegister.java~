@@ -90,10 +90,6 @@ public class UserRegister {
 
         saveUsersToFile(users);
     }
-    public boolean isUserRegistered(String userId) throws IOException {
-        List<User> users = loadUsersFromFile();
-        return users.stream().anyMatch(user -> user.getId().equals(userId));
-    }
 
     private void writeUserToFile(User user) throws IOException {
         File file = new File(SAVE_XML_FILE);
