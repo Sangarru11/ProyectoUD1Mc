@@ -14,5 +14,9 @@
 <nombre>Juanma</nombre>
 <password>1234</password>
 <contactos>
+<contacto>
+<id>1</id>
+<nombre>Jorge</nombre>
+</contacto>
 </contactos>
 </persona>

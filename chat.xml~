@@ -1,15 +1,14 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-    <message>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>    <message>
         <sender>1</sender>
         <recipient>2</recipient>
-        <content>Hola que tal</content>
+        <content>Hola Juanma</content>
         <date>2024-10-28</date>
-        <time>18:49:16</time>
+        <time>08:44:19</time>
     </message>
     <message>
         <sender>2</sender>
         <recipient>1</recipient>
-        <content>Hola Jorge</content>
+        <content>CHupame los huevos</content>
         <date>2024-10-28</date>
-        <time>18:49:25</time>
+        <time>08:44:31</time>
     </message>

@@ -1,11 +1,9 @@
 package org.example.View;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import org.example.App;
 import org.example.Entity.User;
 import org.example.Controllers.UserRegister;
 

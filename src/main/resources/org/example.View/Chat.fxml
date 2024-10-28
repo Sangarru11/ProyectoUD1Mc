@@ -12,44 +12,54 @@
 <?import javafx.scene.text.Text?>
 
 <VBox alignment="CENTER" prefHeight="480.0" prefWidth="640.0" spacing="10" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.View.ChatViewController">
-   <HBox prefHeight="54.0" prefWidth="640.0">
-      <children>
-          <ImageView fitHeight="79.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                  <Image url="@logo.jpeg" />
-              </image>
-          </ImageView>
-          <AnchorPane prefHeight="37.0" prefWidth="566.0">
-              <children>
-                  <Text layoutX="221.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat">
-                      <font>
-                          <Font size="29.0" />
-                      </font>
-                  </Text>
-              </children>
-          </AnchorPane>
-      </children>
-   </HBox>
+    <HBox prefHeight="54.0" prefWidth="640.0">
+        <children>
+            <ImageView fitHeight="79.0" fitWidth="99.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@logo.jpeg" />
+                </image>
+            </ImageView>
+            <AnchorPane prefHeight="37.0" prefWidth="566.0">
+                <children>
+                    <Text layoutX="221.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chat">
+                        <font>
+                            <Font size="29.0" />
+                        </font>
+                    </Text>
+               <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="502.0" layoutY="17.0" onMouseClicked="#exportChat" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@UilExport.png" />
+                  </image>
+               </ImageView>
+               <ImageView fitHeight="45.0" fitWidth="50.0" layoutX="438.0" layoutY="17.0" onMouseClicked="#analyzeChat" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                     <Image url="@TablerAnalyze.png" />
+                  </image>
+               </ImageView>
+                </children>
+            </AnchorPane>
+        </children>
+    </HBox>
     <TextArea fx:id="messageArea" editable="false" prefHeight="255.0" prefWidth="640.0" />
     <TextField fx:id="messageInput" promptText="Introduce tu mensaje" />
-   <AnchorPane prefHeight="43.0" prefWidth="640.0">
-      <children>
-         <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="584.0" layoutY="73.0" onMouseClicked="#ChangeSceneToContact" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@Return.png" />
-            </image>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </ImageView>
-         <ImageView fitHeight="56.0" fitWidth="59.0" layoutX="292.0" layoutY="37.0" onMouseClicked="#sendMessage" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@TablerSend.png" />
-            </image>
-            <cursor>
-               <Cursor fx:constant="HAND" />
-            </cursor>
-         </ImageView>
-      </children>
-   </AnchorPane>
+    <AnchorPane prefHeight="43.0" prefWidth="640.0">
+        <children>
+            <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="584.0" layoutY="73.0" onMouseClicked="#ChangeSceneToContact" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@Return.png" />
+                </image>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </ImageView>
+            <ImageView fitHeight="56.0" fitWidth="59.0" layoutX="292.0" layoutY="37.0" onMouseClicked="#sendMessage" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@TablerSend.png" />
+                </image>
+                <cursor>
+                    <Cursor fx:constant="HAND" />
+                </cursor>
+            </ImageView>
+        </children>
+    </AnchorPane>
 </VBox>

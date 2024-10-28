@@ -23,7 +23,7 @@ public class ChatController {
             }
     }
 
-    public List<ChatConst> loadMessages(String userId) throws IOException {
+    public static List<ChatConst> loadMessages(String userId) throws IOException {
         List<ChatConst> messages = new ArrayList<>();
         File xmlFile = new File(CHAT_FILE_PATH);
 
